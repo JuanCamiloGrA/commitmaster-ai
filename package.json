@@ -71,7 +71,8 @@
   "publishConfig": {
     "vscode": {
       "assets": [
-        "src/webview/**/*"
+        "src/webview/**/*",
+        "src/webview"
       ]
     }
   }

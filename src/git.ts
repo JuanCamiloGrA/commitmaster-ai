@@ -20,15 +20,15 @@ export async function getDiff(folder: vscode.WorkspaceFolder): Promise<string> {
 	const status = await git.status();
 	let diff = "";
 
+	// First check staged changes
 	if (status.staged.length > 0) {
-		// If there are staged changes, get the diff of only the staged changes.
 		diff = await git.diff(["--staged"]);
-	} else if (status.files.length > 0) {
-		// If there are only unstaged changes, get the diff of all changes.
-		diff = await git.diff();
-	} else {
-		return "";
 	}
+	// If no staged changes, get all modified files
+	else if (status.modified.length > 0 || status.not_added.length > 0) {
+		diff = await git.diff();
+	}
+
 	return diff;
 }
 

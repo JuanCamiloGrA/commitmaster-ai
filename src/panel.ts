@@ -1,4 +1,3 @@
-import * as path from "node:path";
 import * as vscode from "vscode";
 import { generateCommitMessage } from "./ai";
 import { doCommit } from "./git";
@@ -92,7 +91,8 @@ export class CommitPanel {
 			"webview",
 			"commit-panel.html",
 		);
-		const htmlContent = require("node:fs").readFileSync(
+		// biome-ignore lint/style/useNodejsImportProtocol: <explanation>
+		const htmlContent = require("fs").readFileSync(
 			htmlPath.fsPath,
 			"utf8",
 		);
