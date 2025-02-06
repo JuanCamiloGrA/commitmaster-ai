@@ -1,0 +1,78 @@
+{
+  "name": "commitmaster-ai",
+  "displayName": "CommitMaster AI",
+  "description": "Transform your commit history into a masterpiece of clarity and professionalism. Leverage artificial intelligence to create consistently perfect, educational, and highly detailed commit messages that enhance collaboration and code understanding.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JuanCamiloGrA/commitmaster-ai.git"
+  },
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other",
+    "AI",
+    "SCM Providers"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "browser": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-commit-generator.generateCommit",
+        "title": "CommitMaster: Generate Commit"
+      },
+      {
+        "command": "ai-commit-generator.setGeminiApiKey",
+        "title": "CommitMaster: Set Gemini API Key"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "CommitMaster AI Configuration",
+      "properties": {
+        "commitMaster.geminiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "The Gemini API Key for CommitMaster AI extension"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "format": "npx @biomejs/biome format --write src",
+    "lint": "npx @biomejs/biome lint --write src",
+    "check": "npx @biomejs/biome check --write src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "simple-git": "^3.27.0"
+  },
+  "publishConfig": {
+    "vscode": {
+      "assets": [
+        "src/webview/**/*"
+      ]
+    }
+  }
+}
