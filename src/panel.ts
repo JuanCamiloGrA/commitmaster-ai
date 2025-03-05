@@ -92,10 +92,7 @@ export class CommitPanel {
 			"commit-panel.html",
 		);
 		// biome-ignore lint/style/useNodejsImportProtocol: <explanation>
-		const htmlContent = require("fs").readFileSync(
-			htmlPath.fsPath,
-			"utf8",
-		);
+		const htmlContent = require("fs").readFileSync(htmlPath.fsPath, "utf8");
 		return htmlContent;
 	}
 

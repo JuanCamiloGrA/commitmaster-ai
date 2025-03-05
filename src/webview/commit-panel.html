@@ -81,6 +81,14 @@
                 });
             }
         });
+        
+        // Save commit message when it changes
+        textarea.addEventListener('input', () => {
+            vscode.postMessage({
+                type: 'saveMessage',
+                message: textarea.value
+            });
+        });
     </script>
 </body>
 </html>
