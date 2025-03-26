@@ -50,7 +50,8 @@
     "format": "npx @biomejs/biome format --write src",
     "lint": "npx @biomejs/biome lint --write src",
     "check": "npx @biomejs/biome check --write src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "build": "vsce package"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
